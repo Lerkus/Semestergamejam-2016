@@ -3,13 +3,11 @@ using System.Collections;
 
 public class Present : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+	void OnTriggerEnter(Collider collider)
+    {
+        if(collider.gameObject.tag == "Player")
+        {
+            //TODO: destroy the present and add items to inventory
+        }
+    }
 }

@@ -12,4 +12,11 @@ public class Cup : MonoBehaviour {
 	void Update () {
 	
 	}
+    void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Snowman")
+        {
+            //TODO: damage Snowman
+        }
+    }
 }
