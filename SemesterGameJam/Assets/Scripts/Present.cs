@@ -3,13 +3,20 @@ using System.Collections;
 
 public class Present : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+	void OnTriggerEnter(Collider collider)
+    {
+        if(collider.gameObject.tag == "Player")
+        {
+            FindObjectOfType<Inventory>().addResources(determineReward);
+            GameObject.Destroy(gameObject);
+        }
+    }
+
+    int [] determineReward()
+    {
+        //TODO: Randomize Reward
+        int[] reward = { 1, 5, 3 , 1, 5, 6, 0, 0, 0, 0, 0, 0};
+        return reward;
+
+    }
 }
