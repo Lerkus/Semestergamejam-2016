@@ -23,7 +23,7 @@ GameObject:
   - 61: {fileID: 61000012879350668}
   - 114: {fileID: 114000011119209544}
   m_Layer: 0
-  m_Name: New Prefab
+  m_Name: PresentPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
