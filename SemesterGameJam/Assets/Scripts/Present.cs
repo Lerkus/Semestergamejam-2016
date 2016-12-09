@@ -7,7 +7,7 @@ public class Present : MonoBehaviour {
     {
         if(collider.gameObject.tag == "Player")
         {
-            FindObjectOfType<Inventory>().addResources(determineReward);
+            FindObjectOfType<Inventory>().addResources(determineReward());
             GameObject.Destroy(gameObject);
         }
     }
