@@ -5,9 +5,13 @@ public class PlayerContoller : MonoBehaviour {
 
 	public float playerSpeed = 10f;
 
-	private bool fliped = false;
 	private bool right = false;
 	private Vector2 lastDPRot = new Vector2 (0f, 0f);
+	private Rigidbody2D rg;
+
+	void Start() {
+		rg = transform.parent.GetComponent<Rigidbody2D> ();
+	}
 
 	void Update() {
 		float horizontalMove = Input.GetAxis ("Horizontal");
@@ -16,28 +20,12 @@ public class PlayerContoller : MonoBehaviour {
 		float dPad_Y = Input.GetAxis ("DPad-YAxis");
 
 		// Player Movement
-		if (horizontalMove != 0) {
-			transform.parent.transform.Translate (horizontalMove * playerSpeed * Vector3.right * Time.deltaTime, Space.World);
-		}
-		if (VerticalMove != 0) {
-			transform.parent.transform.Translate (VerticalMove * playerSpeed * Vector3.up * Time.deltaTime, Space.World);
-		}
+		Vector3 movement = new Vector3 (horizontalMove, VerticalMove, 0f);
+		rg.AddForce (movement * playerSpeed);
 
-//
-//
-//
 		// Player's Hand Rotation
 		// TODO change it for rotation for hand after adding sprites and change player's scaling according to player behavior
 		if(dPad_X!=0 || dPad_Y!=0)	 {
-//			if (transform.GetChild (0).eulerAngles.z > 30 && transform.GetChild (0).eulerAngles.z < 210) {
-//				if (!fliped) {
-//					Flip ();
-//				}
-//			} else {
-//				if (fliped) {
-//					Flip ();
-//				}
-//			}
 			Vector2 direction = -((Vector2)((Quaternion.Euler(0, 0, gameObject.transform.rotation.eulerAngles.z - 90) * Vector2.right))).normalized;
 			if ((direction.x < 0) && right) {
 				right = false;
@@ -53,22 +41,9 @@ public class PlayerContoller : MonoBehaviour {
 			float RotZ = Mathf.Atan2 (dir.y, dir.x) * Mathf.Rad2Deg;
 			transform.rotation = Quaternion.Euler (0f, 0f, RotZ -90);
 		}
-//
-//		// Hand rotation
-//		if (dPad_X != 0 || dPad_Y != 0) {
-//			Vector2 x = dPad_X * Vector2.right;
-//			Vector2 y = dPad_Y * Vector2.up;
-//			Vector2 dir = x + y;
-//			//dir.Normalize ();
-//			float RotZ = Mathf.Atan2 (dir.y, dir.x) * Mathf.Rad2Deg;
-//			if(RotZ != lastDPRot) {
-//				Vector2 firstVector = 
-//			}
-//		}
-
-
+			
         if (Input.GetAxis("Attack") < 0)
-            gameObject.GetComponent<Attack>().attack(-(Vector2)(Quaternion.Euler(0, 0, gameObject.transform.rotation.eulerAngles.z) * Vector2.right));
+            gameObject.GetComponent<Attack>().attack(-(Vector2)(Quaternion.Euler(0, 0, gameObject.transform.rotation.eulerAngles.z + 90) * Vector2.right));
 
         if (Input.GetButtonDown("Swap"))
             gameObject.GetComponent<Attack>().switchWeapon();      
