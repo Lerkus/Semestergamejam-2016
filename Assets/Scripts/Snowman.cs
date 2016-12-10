@@ -89,6 +89,7 @@ public class Snowman : MonoBehaviour {
 		}
 		pathIsEnded = false;
         // Direction of the next waypoint
+        speed = 10 + Mathf.RoundToInt(Random.value * 10);
         Vector3 dir = path.vectorPath[currentWaypoint] - transform.position;
 		dir *= speed * Time.fixedDeltaTime;
 
