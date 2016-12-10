@@ -17,10 +17,10 @@ public class PlayerContoller : MonoBehaviour {
 
 		// Player Movement
 		if (horizontalMove != 0) {
-			transform.Translate (horizontalMove * playerSpeed * Vector3.right * Time.deltaTime, Space.World);
+			transform.parent.transform.Translate (horizontalMove * playerSpeed * Vector3.right * Time.deltaTime, Space.World);
 		}
 		if (VerticalMove != 0) {
-			transform.Translate (VerticalMove * playerSpeed * Vector3.up * Time.deltaTime, Space.World);
+			transform.parent.transform.Translate (VerticalMove * playerSpeed * Vector3.up * Time.deltaTime, Space.World);
 		}
 
 //
@@ -38,7 +38,7 @@ public class PlayerContoller : MonoBehaviour {
 //					Flip ();
 //				}
 //			}
-			Vector2 direction = -((Vector2)((Quaternion.Euler(0, 0, gameObject.transform.GetChild(0).rotation.eulerAngles.z - 90) * Vector2.right))).normalized;
+			Vector2 direction = -((Vector2)((Quaternion.Euler(0, 0, gameObject.transform.rotation.eulerAngles.z - 90) * Vector2.right))).normalized;
 			if ((direction.x < 0) && right) {
 				right = false;
 				Flip ();
@@ -51,7 +51,7 @@ public class PlayerContoller : MonoBehaviour {
 			Vector3 dir = x + y;
 			//dir.Normalize ();
 			float RotZ = Mathf.Atan2 (dir.y, dir.x) * Mathf.Rad2Deg;
-			transform.GetChild(0).rotation = Quaternion.Euler (0f, 0f, RotZ -90);
+			transform.rotation = Quaternion.Euler (0f, 0f, RotZ -90);
 		}
 //
 //		// Hand rotation
@@ -75,8 +75,8 @@ public class PlayerContoller : MonoBehaviour {
     }
 
 	void Flip() {
-		Transform arm = transform.GetChild(0);
-		Transform body = transform.GetChild(1);
+		Transform arm = transform;
+		Transform body = transform.parent.GetChild(0);
 		if (right) {
 			arm.GetChild (1).gameObject.SetActive(false);
 			arm.GetChild (0).gameObject.SetActive(true);
