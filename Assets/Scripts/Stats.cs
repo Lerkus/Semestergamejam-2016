@@ -3,14 +3,15 @@ using System.Collections;
 
 public abstract class Stats : MonoBehaviour {
 
-    public float health = 100;
+    public float actualHealth = 100;
+    public float maxHealth = 100;
     public float speed = 5;
     public float strenght = 1;
 
     public void takeDamage(float damage)
     {
-        health -= damage;
-        if(health <= 0)
+        actualHealth -= damage;
+        if(actualHealth <= 0)
         {
             die();
         }

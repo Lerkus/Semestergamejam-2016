@@ -195,7 +195,7 @@ public class SkillTree : MonoBehaviour
                 if (canYouSkill(skill.life))
                 {
                     lifeLevel++;
-                    gameObject.GetComponent<PlayerStats>().health *= 1.75f;
+                    gameObject.GetComponent<PlayerStats>().maxHealth *= 1.75f;
                 }
                 break;
 
