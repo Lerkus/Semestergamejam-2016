@@ -13,6 +13,7 @@ public class WaveManager : MonoBehaviour
     private int actualWave = 0;
     public int maxWave = 5;
     public GameObject EnemyPrefab;
+    public Camera mainCam;
     public int[] amountOfEnemiesToSpawn;
     public int difficulty = 10;
     private List<GameObject> activeEnemies = new List<GameObject>();
@@ -26,8 +27,9 @@ public class WaveManager : MonoBehaviour
         {
             amountOfEnemiesToSpawn[i] = Mathf.RoundToInt(Random.value * (float)(difficulty));
         }
-        GameObject player = (GameObject)Instantiate(GameMaster.getGameMaster().playerPrefab, (maxBounds + minBounds)/2, new Quaternion());
+        var player = Instantiate(GameMaster.getGameMaster().playerPrefab, (maxBounds + minBounds)/2, new Quaternion()) as GameObject;
         GameMaster.player = player;
+        mainCam.transform.parent = GameMaster.player.GetComponentInChildren<Body>().gameObject.transform;
         nextWave();
     }
 
