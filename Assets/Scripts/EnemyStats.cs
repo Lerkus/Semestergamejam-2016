@@ -11,6 +11,7 @@ public class EnemyStats : Stats {
         {
             Instantiate(presentPrefab, transform.position, new Quaternion());
         }
+        GameMaster.getGameMaster().GetComponent<WaveManager>().removeActiveEnemy(gameObject);
         GameObject.Destroy(gameObject);
     }
 }
