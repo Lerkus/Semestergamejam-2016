@@ -101,6 +101,7 @@ GameObject:
   - 114: {fileID: 390571109}
   - 114: {fileID: 390571111}
   - 114: {fileID: 390571112}
+  - 114: {fileID: 390571113}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -154,6 +155,7 @@ MonoBehaviour:
     type: 2}
   amountOfEnemiesToSpawn: 
   difficulty: 10
+  finishedScene: test Lerkus
 --- !u!114 &390571112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,6 +167,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a20cfccd2e64f6468a26b08b94d4ca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &390571113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 390571108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3161f20045645da45955e911406ba0c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  speed: 5
+  strenght: 1
+  attackCoolDown: 0.5
+  shotsToFire: 5
+  shotSpeed: 10
+  shotgunWidthModifier: 0.1
 --- !u!1001 &915541068
 Prefab:
   m_ObjectHideFlags: 0
