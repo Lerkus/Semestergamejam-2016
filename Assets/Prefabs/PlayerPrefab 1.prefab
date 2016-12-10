@@ -71,7 +71,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011636377030}
-  - 114: {fileID: 114000011410251956}
   m_Layer: 10
   m_Name: PlayerPrefab 1
   m_TagString: Player
@@ -219,24 +218,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 10
---- !u!114 &114000011410251956
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013735565884}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3161f20045645da45955e911406ba0c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  speed: 5
-  strenght: 1
-  attackCoolDown: 0.5
-  shotsToFire: 5
-  shotSpeed: 10
-  shotgunWidthModifier: 0.1
 --- !u!114 &114000012477847316
 MonoBehaviour:
   m_ObjectHideFlags: 1
