@@ -36,13 +36,13 @@ public class Attack : MonoBehaviour
         if (lastShot > shotgunCd)
         {
             GameObject fired;
-            int nowShoting = gameObject.GetComponent<PlayerStats>().shotsToFire;
-            Vector2 actualDirection = direction - (int)(nowShoting / 2) * new Vector2(direction.y, -direction.x) * gameObject.GetComponent<PlayerStats>().shotgunWidthModifier;
+            int nowShoting = gameObject.GetComponentInParent<PlayerStats>().shotsToFire;
+            Vector2 actualDirection = direction - (int)(nowShoting / 2) * new Vector2(direction.y, -direction.x) * gameObject.GetComponentInParent<PlayerStats>().shotgunWidthModifier;
             for (int i = 0; i < nowShoting; i++)
             {
                 fired = (GameObject)Instantiate(shotPrefab, gameObject.transform.position, new Quaternion());
-                fired.GetComponent<Rigidbody2D>().AddForce(actualDirection * gameObject.GetComponent<PlayerStats>().shotSpeed, ForceMode2D.Impulse);
-                actualDirection += new Vector2(direction.y, -direction.x) * gameObject.GetComponent<PlayerStats>().shotgunWidthModifier;
+                fired.GetComponent<Rigidbody2D>().AddForce(actualDirection * gameObject.GetComponentInParent<PlayerStats>().shotSpeed, ForceMode2D.Impulse);
+                actualDirection += new Vector2(direction.y, -direction.x) * gameObject.GetComponentInParent<PlayerStats>().shotgunWidthModifier;
             }
             lastShot = 0;
         }
