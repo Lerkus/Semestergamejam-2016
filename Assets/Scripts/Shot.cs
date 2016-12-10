@@ -4,7 +4,7 @@ using System.Collections;
 public class Shot : MonoBehaviour {
 
     public int damage = 1;
-    public float timeToLive = 1.5f;
+    public float timeToLive = 0.2f;
     private Coroutine timer;
 
 

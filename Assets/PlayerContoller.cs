@@ -13,10 +13,10 @@ public class PlayerContoller : MonoBehaviour {
 
 		// Player Movement
 		if (horizontalMove != 0) {
-			transform.Translate (horizontalMove * playerSpeed * Vector3.right * Time.deltaTime);
+			transform.Translate (horizontalMove * playerSpeed * Vector3.right * Time.deltaTime, Space.World);
 		}
 		if (VerticalMove != 0) {
-			transform.Translate (VerticalMove * playerSpeed * Vector3.up * Time.deltaTime);
+			transform.Translate (VerticalMove * playerSpeed * Vector3.up * Time.deltaTime, Space.World);
 		}
 
 		// Player's Hand Rotation
@@ -30,8 +30,8 @@ public class PlayerContoller : MonoBehaviour {
 			transform.rotation = Quaternion.Euler (0f, 0f, RotZ);
 		}
 
-		// TODO Fire
-		if (Input.GetAxis("Attack") < 0)
-			Debug.Log ("Right Trigger");
+        // TODO Fire
+        if (Input.GetAxis("Attack") < 0)
+            gameObject.GetComponent<Attack>().attack(-(Vector2)(Quaternion.Euler(0, 0, gameObject.transform.rotation.eulerAngles.z) * Vector2.right));
 	}
 }
