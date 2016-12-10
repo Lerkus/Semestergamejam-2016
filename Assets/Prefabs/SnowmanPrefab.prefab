@@ -116,8 +116,8 @@ Rigidbody2D:
   m_GameObject: {fileID: 1000012039818718}
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_LinearDrag: 0.5
+  m_AngularDrag: 0.5
   m_GravityScale: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  updateRate: 2
+  updateRate: 5
   speed: 10
   fMode: 0
   pathIsEnded: 0
