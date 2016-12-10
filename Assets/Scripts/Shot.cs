@@ -12,10 +12,10 @@ public class Shot : MonoBehaviour {
     public void Awake()
     {
         timer = StartCoroutine(timeOut());
-        gameObject.GetComponent<SpriteRenderer>().sprite = shots[Mathf.RoundToInt(Random.value * 4.0f)];
+        gameObject.GetComponent<SpriteRenderer>().sprite = shots[Mathf.RoundToInt((int)(Random.value * 4.0f))];
     }
 
-    public void OnTriggerEnter2D(Collider2D coll)
+    public void OnCollisionEnter2D(Collision2D coll)
     {
         if (coll.gameObject.tag == "Snowman")
         {

@@ -33,7 +33,11 @@ public class Snowman : MonoBehaviour {
 	private int currentWaypoint = 0;
 
 	void Start() {
-		seeker = transform.GetComponent<Seeker> ();
+
+        speed = 10 + Mathf.RoundToInt(Random.value * 10);
+
+
+        seeker = transform.GetComponent<Seeker> ();
 		rb = transform.GetComponent<Rigidbody2D> ();
 
 		if(target == null) {
@@ -84,9 +88,9 @@ public class Snowman : MonoBehaviour {
 			return;
 		}
 		pathIsEnded = false;
-
-		// Direction of the next waypoint
-		Vector3 dir = path.vectorPath[currentWaypoint] - transform.position;
+        // Direction of the next waypoint
+        speed = 10 + Mathf.RoundToInt(Random.value * 10);
+        Vector3 dir = path.vectorPath[currentWaypoint] - transform.position;
 		dir *= speed * Time.fixedDeltaTime;
 
 		// Move the AI
