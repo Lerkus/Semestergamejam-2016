@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class WaveManager : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class WaveManager : MonoBehaviour
     public GameObject EnemyPrefab;
     public int[] amountOfEnemiesToSpawn;
     public int difficulty = 10;
+    private List<GameObject> activeEnemies = new List<GameObject>();
+    public string finishedScene = "test Lerkus";
 
 
     public void Start()
@@ -25,6 +28,7 @@ public class WaveManager : MonoBehaviour
         }
         GameObject player = (GameObject)Instantiate(GameMaster.getGameMaster().playerPrefab, (maxBounds + minBounds)/2, new Quaternion());
         GameMaster.player = player;
+        nextWave();
     }
 
     private IEnumerator waitingForNextWave()
@@ -52,6 +56,20 @@ public class WaveManager : MonoBehaviour
             placeOfSpawning = minBounds + (maxBounds - minBounds) * Mathf.RoundToInt(Random.value);
             GameObject spawned = (GameObject)Instantiate(EnemyPrefab, placeOfSpawning, new Quaternion());
             spawned.GetComponent<Snowman>().target = GameMaster.player.transform;
+            activeEnemies.Add(spawned);
         }
+    }
+
+    public void Update()
+    {
+        if(actualWave == maxWave && activeEnemies.Count == 0)
+        {
+            SceneManager.LoadScene(finishedScene);
+        }
+    }
+
+    public void removeActiveEnemy(GameObject enemy)
+    {
+        activeEnemies.Remove(enemy);
     }
 }

@@ -16,7 +16,6 @@ public class GameMaster : MonoBehaviour {
 	}
     void Start()
     {
-        gameObject.GetComponent<WaveManager>().nextWave();
     }
 	
 	void Update () {
