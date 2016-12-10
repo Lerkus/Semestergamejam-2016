@@ -12,4 +12,9 @@ public class Inventory : MonoBehaviour {
             resources[i] += added[i];
         }
     }
+
+    public void resetInventory()
+    {
+        resources = new int[12];
+    }
 }
