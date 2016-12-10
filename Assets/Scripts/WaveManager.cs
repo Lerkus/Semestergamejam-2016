@@ -43,7 +43,7 @@ public class WaveManager : MonoBehaviour
         Vector2 placeOfSpawning;
         for (int i = 0; i < amountOfEnemiesToSpawn[actualWave]; i++)
         {
-            placeOfSpawning = (minBounds + maxBounds) / 2 + Random.insideUnitCircle.normalized * distanceToMid;
+            placeOfSpawning = minBounds + (maxBounds - minBounds) * Mathf.RoundToInt(Random.value);
             Instantiate(EnemyPrefab, placeOfSpawning, new Quaternion());
         }
     }
