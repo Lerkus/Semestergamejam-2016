@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class SkillTree : MonoBehaviour
 {
@@ -124,6 +125,7 @@ public class SkillTree : MonoBehaviour
 
     public void skillUp(skill skill)
     {
+        print("hallo");
         switch (skill)
         {
             case skill.attackSpeed:
