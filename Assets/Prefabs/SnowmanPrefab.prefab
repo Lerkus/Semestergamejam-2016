@@ -198,9 +198,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000012039818718}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0b86f8f0c6a1447af1f38ec4733743, type: 3}
+  m_Script: {fileID: 11500000, guid: f47eba345e045164eaeca3d4f0c3e084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
+  speed: 5
+  strenght: 1
+  presentPrefab: {fileID: 1000012781237896, guid: 8f5e71403f783764e9b0bdde113b5676,
+    type: 2}
+  dropChance: 0.3
 --- !u!114 &114000013400152586
 MonoBehaviour:
   m_ObjectHideFlags: 1

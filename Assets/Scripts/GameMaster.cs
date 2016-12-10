@@ -3,6 +3,8 @@ using System.Collections;
 
 public class GameMaster : MonoBehaviour {
     private static GameMaster masterReferenz;
+    public GameObject playerPrefab;
+    public static GameObject player;
 
     public static GameMaster getGameMaster()
     {

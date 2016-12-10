@@ -8,17 +8,23 @@ public class WaveManager : MonoBehaviour
     public Vector2 maxBounds = new Vector2(10, 10);
     public float distanceToMid = 10;
     public float timeDelayBetweenWaves = 60;
-    private IEnumerator timer;
+    private Coroutine timer;
     private int actualWave = 0;
     public int maxWave = 5;
     public GameObject EnemyPrefab;
-    public List<int> amountOfEnemiesToSpawn;
+    public int[] amountOfEnemiesToSpawn;
     public int difficulty = 10;
+
 
     public void Start()
     {
-        amountOfEnemiesToSpawn = new List<int>(maxWave);
-
+        amountOfEnemiesToSpawn = new int[maxWave];
+        for (int i = 0; i < maxWave; i++)
+        {
+            amountOfEnemiesToSpawn[i] = Mathf.RoundToInt(Random.value * (float)(difficulty));
+        }
+        GameObject player = (GameObject)Instantiate(GameMaster.getGameMaster().playerPrefab, (maxBounds + minBounds)/2, new Quaternion());
+        GameMaster.player = player;
     }
 
     private IEnumerator waitingForNextWave()
@@ -33,7 +39,7 @@ public class WaveManager : MonoBehaviour
         if (actualWave < maxWave)
         {
             spawnWave();
-            StartCoroutine(waitingForNextWave());
+            timer = StartCoroutine(waitingForNextWave());
             actualWave++;
         }
     }
@@ -44,7 +50,8 @@ public class WaveManager : MonoBehaviour
         for (int i = 0; i < amountOfEnemiesToSpawn[actualWave]; i++)
         {
             placeOfSpawning = minBounds + (maxBounds - minBounds) * Mathf.RoundToInt(Random.value);
-            Instantiate(EnemyPrefab, placeOfSpawning, new Quaternion());
+            GameObject spawned = (GameObject)Instantiate(EnemyPrefab, placeOfSpawning, new Quaternion());
+            spawned.GetComponent<Snowman>().target = GameMaster.player.transform;
         }
     }
 }
