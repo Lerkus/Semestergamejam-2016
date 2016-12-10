@@ -162,15 +162,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 574157785}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa3d4706646f2ba49ae1f87c0bf5fa5f, type: 3}
+  m_Script: {fileID: 11500000, guid: 0d85e6f9dfd664149850036ec93355ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  speed: 5
-  strenght: 1
-  attackCoolDown: 0.5
-  shotsToFire: 5
-  shotSpeed: 10
+  attackType: 1
+  shotPrefab: {fileID: 1000012423193054, guid: 8f7a7e6d658ae514ea294edb64a77b9a, type: 2}
 --- !u!114 &574157789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,11 +175,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 574157785}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3587f178c678b32489fdc7bdba303b10, type: 3}
+  m_Script: {fileID: 11500000, guid: 3161f20045645da45955e911406ba0c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackType: 1
-  shotPrefab: {fileID: 1000012423193054, guid: 771afbce75aaf854085f685bb0a2027d, type: 2}
+  health: 100
+  speed: 5
+  strenght: 1
+  attackCoolDown: 0.5
+  shotsToFire: 5
+  shotSpeed: 10
+  shotgunWidthModifier: 0.1
 --- !u!1 &2063938156
 GameObject:
   m_ObjectHideFlags: 0
