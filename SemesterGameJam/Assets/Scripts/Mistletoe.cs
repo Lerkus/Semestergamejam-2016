@@ -8,7 +8,7 @@ public class Mistletoe : MonoBehaviour {
     {
         if(collider.gameObject.tag == "Snowman")
         {
-            collider.GetComponent<SnowmanStats>().takeDamage(damage);
+            //collider.GetComponent<SnowmanStats>().takeDamage(damage);
         }
     }
 }
