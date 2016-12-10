@@ -53,9 +53,9 @@ public class WaveManager : MonoBehaviour
         Vector2 placeOfSpawning;
         for (int i = 0; i < amountOfEnemiesToSpawn[actualWave]; i++)
         {
-            placeOfSpawning = minBounds + (maxBounds - minBounds) * Mathf.RoundToInt(Random.value);
+            placeOfSpawning = minBounds + new Vector2((maxBounds - minBounds).x * Mathf.RoundToInt(Random.value), (maxBounds - minBounds).y * Mathf.RoundToInt(Random.value));
             GameObject spawned = (GameObject)Instantiate(EnemyPrefab, placeOfSpawning, new Quaternion());
-            spawned.GetComponent<Snowman>().target = GameMaster.player.transform;
+            spawned.GetComponent<Snowman>().target = GameMaster.player.GetComponentInChildren<Body>().gameObject.transform;
             activeEnemies.Add(spawned);
         }
     }
