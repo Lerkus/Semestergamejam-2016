@@ -3,9 +3,9 @@ using System.Collections;
 
 public class Present : MonoBehaviour {
 
-	void OnTriggerEnter(Collider collider)
+	void OnCollisionEnter2D(Collision2D coll)
     {
-        if(collider.gameObject.tag == "Player")
+        if (coll.gameObject.tag == "Player")
         {
             FindObjectOfType<Inventory>().addResources(determineReward());
             GameObject.Destroy(gameObject);
