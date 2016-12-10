@@ -4,10 +4,12 @@ using System.Collections;
 public class Attack : MonoBehaviour
 {
     public enum mode { closeCombat, shotgun }
-    public mode attackType = mode.closeCombat;
+    public mode attackType = mode.shotgun;
     public GameObject shotPrefab;
     public float shotgunCd = 1;
     private float lastShot = 1.1f;
+    private GameObject mistletoe;
+    public GameObject mistletoePrefab;
 
     public void attack(Vector2 direction)
     {
@@ -46,5 +48,22 @@ public class Attack : MonoBehaviour
     {
         if (lastShot < shotgunCd)
             lastShot += Time.deltaTime;
+    }
+
+    public void switchWeapon()
+    {
+        if(attackType == mode.shotgun)
+        {
+            attackType = mode.closeCombat;
+            mistletoe = (GameObject)Instantiate(mistletoePrefab, gameObject.transform.position + (Quaternion.Euler(0, 0, gameObject.transform.rotation.eulerAngles.z) * Vector2.right).normalized * -1, gameObject.transform.rotation);
+            mistletoe.transform.parent = this.gameObject.transform;
+        }
+        else if(attackType == mode.closeCombat)
+        {
+            Debug.Log("changed");
+            attackType = mode.shotgun;
+            GameObject.Destroy(mistletoe);
+            mistletoe = null;
+        }
     }
 }

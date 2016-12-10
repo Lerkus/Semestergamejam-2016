@@ -10,7 +10,7 @@ public abstract class Stats : MonoBehaviour {
     public void takeDamage(int damage)
     {
         health -= damage;
-        if(damage <= 0)
+        if(health <= 0)
         {
             die();
         }

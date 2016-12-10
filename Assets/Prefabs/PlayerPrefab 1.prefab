@@ -21,7 +21,7 @@ GameObject:
   - 4: {fileID: 4000013750069386}
   - 212: {fileID: 212000010413959838}
   - 114: {fileID: 114000010230078082}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - 114: {fileID: 114000011236537108}
   - 50: {fileID: 50000014212749784}
   - 61: {fileID: 61000012672495678}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Arm
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010779714716}
   - 212: {fileID: 212000010204982594}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PlaceholderSnowman
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011636377030}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PlayerPrefab 1
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000013571481278}
   - 212: {fileID: 212000013064172206}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PlaceholderPresent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!61 &61000012672495678
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -215,7 +215,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000012606369598}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff58b7d418854ff419a9d5922b117259, type: 3}
+  m_Script: {fileID: 11500000, guid: d88eb5c5cb6f6b84589145da285e3eb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 10
@@ -233,6 +233,8 @@ MonoBehaviour:
   attackType: 1
   shotPrefab: {fileID: 1000012423193054, guid: 8f7a7e6d658ae514ea294edb64a77b9a, type: 2}
   shotgunCd: 1
+  mistletoePrefab: {fileID: 1000011662233432, guid: efedc03c4893e9c4d9addbf11c333c96,
+    type: 2}
 --- !u!114 &114000014067839744
 MonoBehaviour:
   m_ObjectHideFlags: 1

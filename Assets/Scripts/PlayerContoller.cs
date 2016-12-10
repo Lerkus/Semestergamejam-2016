@@ -30,8 +30,10 @@ public class PlayerContoller : MonoBehaviour {
 			transform.rotation = Quaternion.Euler (0f, 0f, RotZ);
 		}
 
-        // TODO Fire
         if (Input.GetAxis("Attack") < 0)
             gameObject.GetComponent<Attack>().attack(-(Vector2)(Quaternion.Euler(0, 0, gameObject.transform.rotation.eulerAngles.z) * Vector2.right));
-	}
+
+        if (Input.GetButtonDown("Jump"))
+            gameObject.GetComponent<Attack>().switchWeapon();
+    }
 }

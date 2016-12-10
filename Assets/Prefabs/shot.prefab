@@ -19,13 +19,13 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013628283078}
-  - 50: {fileID: 50000010040776566}
   - 58: {fileID: 58000010743610948}
   - 114: {fileID: 114000010005680316}
   - 212: {fileID: 212000013770238988}
-  m_Layer: 0
+  - 50: {fileID: 50000012402809130}
+  m_Layer: 8
   m_Name: shot
-  m_TagString: Player
+  m_TagString: ChristmasBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,7 +43,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!50 &50000010040776566
+--- !u!50 &50000012402809130
 Rigidbody2D:
   serializedVersion: 2
   m_ObjectHideFlags: 1
@@ -54,7 +54,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ce8c6e370bb402418c244b417f82751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 10
   timeToLive: 0.3
 --- !u!212 &212000013770238988
 SpriteRenderer:
