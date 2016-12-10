@@ -7,6 +7,9 @@ TagManager:
   - Present
   - ChristmasBall
   - Snowman
+  - Candy Cone
+  - Cup
+  - Mistletoe
   layers:
   - Default
   - TransparentFX
@@ -16,11 +19,11 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - ChristmasBall
+  - Obstacle
+  - Player
+  - Snowman
+  - Mistletoe
   - 
   - 
   - 

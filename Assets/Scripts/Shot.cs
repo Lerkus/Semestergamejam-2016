@@ -12,12 +12,14 @@ public class Shot : MonoBehaviour {
     {
         timer = StartCoroutine(timeOut());
     }
-    public void OnCollisionEnter2D(Collision2D coll)
+
+    public void OnTriggerEnter2D(Collider2D coll)
     {
-        if(coll.collider.tag == "Enemy")
+        if (coll.gameObject.tag == "Snowman")
         {
-            coll.collider.GetComponent<EnemyStats>().takeDamage(damage);
+            StopCoroutine(timer);
             GameObject.Destroy(gameObject);
+            coll.gameObject.GetComponent<EnemyStats>().takeDamage(damage);
         }
     }
     private IEnumerator timeOut()
