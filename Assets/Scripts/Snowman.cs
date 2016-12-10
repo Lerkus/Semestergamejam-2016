@@ -7,6 +7,8 @@ using Pathfinding;
 public class Snowman : MonoBehaviour {
 	public Transform target;
 
+    public int damage = 5;
+
 	// How many times each second we will update our path
 	public float updateRate = 2f;
 
@@ -96,4 +98,12 @@ public class Snowman : MonoBehaviour {
 			return;
 		}
 	}
+
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        if(coll.gameObject.tag == "Player")
+        {
+            coll.gameObject.GetComponentInParent<PlayerStats>().takeDamage(damage);
+        }
+    }
 }

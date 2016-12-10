@@ -21,6 +21,8 @@ GameObject:
   - 4: {fileID: 4000013750069386}
   - 212: {fileID: 212000010413959838}
   - 114: {fileID: 114000010230078082}
+  - 61: {fileID: 61000010144763444}
+  - 50: {fileID: 50000010966697954}
   m_Layer: 10
   m_Name: Body
   m_TagString: Player
@@ -36,11 +38,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011839218898}
-  - 114: {fileID: 114000014067839744}
   - 114: {fileID: 114000012477847316}
   - 114: {fileID: 114000011236537108}
-  - 50: {fileID: 50000014212749784}
-  - 61: {fileID: 61000012672495678}
   m_Layer: 10
   m_Name: Arm
   m_TagString: Player
@@ -72,6 +71,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011636377030}
+  - 114: {fileID: 114000011410251956}
   m_Layer: 10
   m_Name: PlayerPrefab 1
   m_TagString: Player
@@ -164,13 +164,13 @@ Transform:
   - {fileID: 4000010779714716}
   m_Father: {fileID: 4000011636377030}
   m_RootOrder: 1
---- !u!50 &50000014212749784
+--- !u!50 &50000010966697954
 Rigidbody2D:
   serializedVersion: 2
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012606369598}
+  m_GameObject: {fileID: 1000012529098788}
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
@@ -181,12 +181,12 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!61 &61000012672495678
+--- !u!61 &61000010144763444
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012606369598}
+  m_GameObject: {fileID: 1000012529098788}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -219,6 +219,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 10
+--- !u!114 &114000011410251956
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013735565884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3161f20045645da45955e911406ba0c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  speed: 5
+  strenght: 1
+  attackCoolDown: 0.5
+  shotsToFire: 5
+  shotSpeed: 10
+  shotgunWidthModifier: 0.1
 --- !u!114 &114000012477847316
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -235,24 +253,6 @@ MonoBehaviour:
   shotgunCd: 1
   mistletoePrefab: {fileID: 1000011662233432, guid: efedc03c4893e9c4d9addbf11c333c96,
     type: 2}
---- !u!114 &114000014067839744
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012606369598}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3161f20045645da45955e911406ba0c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  speed: 5
-  strenght: 1
-  attackCoolDown: 0.5
-  shotsToFire: 5
-  shotSpeed: 10
-  shotgunWidthModifier: 0.1
 --- !u!212 &212000010204982594
 SpriteRenderer:
   m_ObjectHideFlags: 1
