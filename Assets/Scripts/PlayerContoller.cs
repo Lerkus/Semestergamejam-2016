@@ -33,7 +33,7 @@ public class PlayerContoller : MonoBehaviour {
         if (Input.GetAxis("Attack") < 0)
             gameObject.GetComponent<Attack>().attack(-(Vector2)(Quaternion.Euler(0, 0, gameObject.transform.rotation.eulerAngles.z) * Vector2.right));
 
-        if (Input.GetButtonDown("Jump"))
-            gameObject.GetComponent<Attack>().switchWeapon();
+        if (Input.GetButtonDown("Swap"))
+            gameObject.GetComponent<Attack>().switchWeapon();      
     }
 }
