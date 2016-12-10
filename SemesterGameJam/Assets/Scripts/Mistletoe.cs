@@ -2,14 +2,13 @@
 using System.Collections;
 
 public class Mistletoe : MonoBehaviour {
+    public int damage;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+	void OnTriggerEnter(Collider collider)
+    {
+        if(collider.gameObject.tag == "Snowman")
+        {
+            collider.GetComponent<SnowmanStats>().takeDamage(damage);
+        }
+    }
 }

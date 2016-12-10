@@ -7,7 +7,16 @@ public class Present : MonoBehaviour {
     {
         if(collider.gameObject.tag == "Player")
         {
-            //TODO: destroy the present and add items to inventory
+            FindObjectOfType<Inventory>().addResources(determineReward);
+            GameObject.Destroy(gameObject);
         }
+    }
+
+    int [] determineReward()
+    {
+        //TODO: Randomize Reward
+        int[] reward = { 1, 5, 3 , 1, 5, 6, 0, 0, 0, 0, 0, 0};
+        return reward;
+
     }
 }
