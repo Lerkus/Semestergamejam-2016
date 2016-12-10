@@ -68,7 +68,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 1000012423193054}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: c1aaffe548566df4ca0207cb6544777b, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
@@ -82,11 +82,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000012423193054}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b7e702cdad1c8448800cb9450abfe04, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ce8c6e370bb402418c244b417f82751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  timeToLive: 0.5
+  timeToLive: 0.3
 --- !u!212 &212000013770238988
 SpriteRenderer:
   m_ObjectHideFlags: 1
