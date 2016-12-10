@@ -107,7 +107,7 @@ public class Snowman : MonoBehaviour {
     {
         if(coll.gameObject.tag == "Player")
         {
-            coll.gameObject.GetComponentInParent<PlayerStats>().takeDamage(damage);
+            GameMaster.getGameMaster().GetComponent<PlayerStats>().takeDamage(damage);
         }
     }
 }

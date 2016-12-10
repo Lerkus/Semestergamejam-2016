@@ -88,10 +88,10 @@ MonoBehaviour:
   damage: 10
   timeToLive: 0.3
   shots:
-  - {fileID: 21300000, guid: b42e536475a9b0049a899e2169ecd56a, type: 3}
-  - {fileID: 21300000, guid: b42e536475a9b0049a899e2169ecd56a, type: 3}
-  - {fileID: 21300000, guid: b42e536475a9b0049a899e2169ecd56a, type: 3}
-  - {fileID: 21300000, guid: b42e536475a9b0049a899e2169ecd56a, type: 3}
+  - {fileID: 21300000, guid: a9d4169df24f46043b31e2c0dd9c57e8, type: 3}
+  - {fileID: 21300000, guid: bf0c938d4373ea94ab23f1d09026d543, type: 3}
+  - {fileID: 21300000, guid: 14f301a5900ad03468ad56202ee21da3, type: 3}
+  - {fileID: 21300000, guid: 34ba03604e69aa64d8a73f59cac4cfcc, type: 3}
 --- !u!212 &212000013770238988
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -4,12 +4,12 @@ using System.Collections;
 public class Mistletoe : MonoBehaviour {
     public int damage = 100;
 
-	void OnTriggerEnter2D(Collider2D collider)
+	void OnCollisionEnter2D(Collision2D coll)
     {
-        if(collider.gameObject.tag == "Snowman")
+        if(coll.gameObject.tag == "Snowman")
         {
             Debug.Log("collision");
-            collider.GetComponent<EnemyStats>().takeDamage(damage);
+            coll.gameObject.GetComponent<EnemyStats>().takeDamage(damage);
         }
     }
 }

@@ -29,7 +29,7 @@ public class WaveManager : MonoBehaviour
         }
         var player = Instantiate(GameMaster.getGameMaster().playerPrefab, (maxBounds + minBounds)/2, new Quaternion()) as GameObject;
         GameMaster.player = player;
-        mainCam.transform.parent = GameMaster.player.GetComponentInChildren<Body>().gameObject.transform;
+        mainCam.transform.parent = GameMaster.player.transform;
         nextWave();
     }
 
@@ -57,7 +57,7 @@ public class WaveManager : MonoBehaviour
         {
             placeOfSpawning = minBounds + new Vector2((maxBounds - minBounds).x * Mathf.RoundToInt(Random.value), (maxBounds - minBounds).y * Mathf.RoundToInt(Random.value));
             GameObject spawned = (GameObject)Instantiate(EnemyPrefab, placeOfSpawning, new Quaternion());
-            spawned.GetComponent<Snowman>().target = GameMaster.player.GetComponentInChildren<Body>().gameObject.transform;
+            spawned.GetComponent<Snowman>().target = GameMaster.player.transform;
             activeEnemies.Add(spawned);
         }
     }

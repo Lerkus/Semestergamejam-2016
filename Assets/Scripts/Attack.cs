@@ -36,13 +36,13 @@ public class Attack : MonoBehaviour
         if (lastShot > shotgunCd)
         {
             GameObject fired;
-            int nowShoting = gameObject.GetComponentInParent<PlayerStats>().shotsToFire;
-            Vector2 actualDirection = direction - (int)(nowShoting / 2) * new Vector2(direction.y, -direction.x) * gameObject.GetComponentInParent<PlayerStats>().shotgunWidthModifier;
+            int nowShoting = GameMaster.getGameMaster().GetComponent<PlayerStats>().shotsToFire;
+            Vector2 actualDirection = direction - (int)(nowShoting / 2) * new Vector2(direction.y, -direction.x) * GameMaster.getGameMaster().GetComponent<PlayerStats>().shotgunWidthModifier;
             for (int i = 0; i < nowShoting; i++)
             {
                 fired = (GameObject)Instantiate(shotPrefab, gameObject.transform.position, new Quaternion());
-                fired.GetComponent<Rigidbody2D>().AddForce(actualDirection * gameObject.GetComponentInParent<PlayerStats>().shotSpeed, ForceMode2D.Impulse);
-                actualDirection += new Vector2(direction.y, -direction.x) * gameObject.GetComponentInParent<PlayerStats>().shotgunWidthModifier;
+                fired.GetComponent<Rigidbody2D>().AddForce(actualDirection * GameMaster.getGameMaster().GetComponent<PlayerStats>().shotSpeed, ForceMode2D.Impulse);
+                actualDirection += new Vector2(direction.y, -direction.x) * GameMaster.getGameMaster().GetComponent<PlayerStats>().shotgunWidthModifier;
             }
             lastShot = 0;
         }
@@ -62,12 +62,11 @@ public class Attack : MonoBehaviour
             if (attackType == mode.shotgun)
             {
                 attackType = mode.closeCombat;
-                mistletoe = (GameObject)Instantiate(mistletoePrefab, gameObject.transform.position + (Quaternion.Euler(0, 0, gameObject.transform.rotation.eulerAngles.z) * Vector2.right).normalized * -1, gameObject.transform.rotation);
+                mistletoe = (GameObject)Instantiate(mistletoePrefab, gameObject.transform.position + (Quaternion.Euler(0, 0, gameObject.transform.rotation.eulerAngles.z + 90) * Vector2.right).normalized * -1, gameObject.transform.rotation);
                 mistletoe.transform.parent = this.gameObject.transform;
             }
             else if (attackType == mode.closeCombat)
             {
-                Debug.Log("changed");
                 attackType = mode.shotgun;
                 GameObject.Destroy(mistletoe);
                 mistletoe = null;
