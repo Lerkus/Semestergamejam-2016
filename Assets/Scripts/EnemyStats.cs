@@ -3,11 +3,10 @@ using System.Collections;
 
 public class EnemyStats : Stats {
     public GameObject presentPrefab;
-    public float dropChance = 0.3f;
 
     public override void die()
     {
-        if (Random.value < dropChance)
+        if (Random.value < gameObject.GetComponent<PlayerStats>().presentDropChance)
         {
             Instantiate(presentPrefab, transform.position, new Quaternion());
         }

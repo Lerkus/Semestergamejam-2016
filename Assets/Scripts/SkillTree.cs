@@ -10,7 +10,7 @@ public class SkillTree : MonoBehaviour
     public int attackSpeedLevel = 0;
     public int shotgunWidthLevel = 0;
     public int shotgunDmgLevel = 0;
-    public int mistelGroesseLevel = 0;
+    public int mistelGroesseLevel = 0;//Beim Instantiate vom Mistelobject abfragen
     public int mistelDmgLevel = 0;
 
     [Header("Verteidigungstats")]
@@ -130,6 +130,8 @@ public class SkillTree : MonoBehaviour
                 if (canYouSkill(skill.attackSpeed))
                 {
                     attackSpeedLevel++;
+                    gameObject.GetComponent<PlayerStats>().attackCoolDown *= 0.9f;
+                    gameObject.GetComponent<PlayerStats>().shotSpeed *= 1.1f;
                 }
                 break;
                 
@@ -137,6 +139,8 @@ public class SkillTree : MonoBehaviour
                 if (canYouSkill(skill.shotgunWidth))
                 {
                     shotgunWidthLevel++;
+                    gameObject.GetComponent<PlayerStats>().shotsToFire += 2;
+                    gameObject.GetComponent<PlayerStats>().shotgunWidthModifier *= 1.25f;
                 }
                 break;
 
@@ -144,13 +148,14 @@ public class SkillTree : MonoBehaviour
                 if (canYouSkill(skill.shotgunDmg))
                 {
                     shotgunDmgLevel++;
+                    gameObject.GetComponent<PlayerStats>().shotDmg *= 1.5f;
                 }
                 break;
 
             case skill.mistelGroesse:
                 if (canYouSkill(skill.mistelGroesse))
                 {
-                    mistelGroesseLevel++;
+                    mistelGroesseLevel++; 
                 }
                 break;
 
@@ -158,6 +163,7 @@ public class SkillTree : MonoBehaviour
                 if (canYouSkill(skill.mistelDmg))
                 {
                     mistelDmgLevel++;
+                    gameObject.GetComponent<PlayerStats>().strenght *= 1.5f;
                 }
                 break;
 
@@ -165,6 +171,7 @@ public class SkillTree : MonoBehaviour
                 if (canYouSkill(skill.walkSpeed))
                 {
                     walkSpeedLevel++;
+                    gameObject.GetComponent<PlayerStats>().speed *= 1.2f;
                 }
                 break;
 
@@ -172,6 +179,7 @@ public class SkillTree : MonoBehaviour
                 if (canYouSkill(skill.armour))
                 {
                     armourLevel++;
+                    gameObject.GetComponent<PlayerStats>().dmgTakenMultiplier *= 0.95f;
                 }
                 break;
 
@@ -179,6 +187,7 @@ public class SkillTree : MonoBehaviour
                 if (canYouSkill(skill.invincible))
                 {
                     invincibleLevel++;
+                    gameObject.GetComponent<PlayerStats>().invicibleTime *= 1.5f;
                 }
                 break;
 
@@ -186,6 +195,7 @@ public class SkillTree : MonoBehaviour
                 if (canYouSkill(skill.life))
                 {
                     lifeLevel++;
+                    gameObject.GetComponent<PlayerStats>().health *= 1.75f;
                 }
                 break;
 
@@ -193,6 +203,7 @@ public class SkillTree : MonoBehaviour
                 if (canYouSkill(skill.luck))
                 {
                     luckLevel++;
+                    gameObject.GetComponent<PlayerStats>().presentDropChance *= 1.25f;
                 }
                 break;
 

@@ -3,11 +3,11 @@ using System.Collections;
 
 public abstract class Stats : MonoBehaviour {
 
-    public int health = 100;
-    public int speed = 5;
-    public int strenght = 1;
+    public float health = 100;
+    public float speed = 5;
+    public float strenght = 1;
 
-    public void takeDamage(int damage)
+    public void takeDamage(float damage)
     {
         health -= damage;
         if(health <= 0)
