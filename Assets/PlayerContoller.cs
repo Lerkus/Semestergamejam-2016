@@ -13,10 +13,10 @@ public class PlayerContoller : MonoBehaviour {
 
 		// Player Movement
 		if (horizontalMove != 0) {
-			transform.Translate (horizontalMove * playerSpeed * Vector3.right * Time.deltaTime);
+			transform.Translate (horizontalMove * playerSpeed * Vector3.right * Time.fixedDeltaTime);
 		}
 		if (VerticalMove != 0) {
-			transform.Translate (VerticalMove * playerSpeed * Vector3.up * Time.deltaTime);
+			transform.Translate (VerticalMove * playerSpeed * Vector3.up * Time.fixedDeltaTime);
 		}
 
 		// Player's Hand Rotation

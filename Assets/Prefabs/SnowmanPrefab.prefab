@@ -38,6 +38,9 @@ GameObject:
   - 212: {fileID: 212000012437328348}
   - 58: {fileID: 58000013808957654}
   - 114: {fileID: 114000013400152586}
+  - 114: {fileID: 114000010951883340}
+  - 50: {fileID: 50000012896178196}
+  - 114: {fileID: 114000013152004046}
   m_Layer: 0
   m_Name: SnowmanPrefab
   m_TagString: Snowman
@@ -104,6 +107,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4000010527783922}
   m_RootOrder: 0
+--- !u!50 &50000012896178196
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012039818718}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!58 &58000013808957654
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -143,6 +163,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec6a0e357cd2a704a8fcc7bbe839b01d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114000010951883340
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012039818718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  traversableTagsCompatibility:
+    tagsChange: -1
+    tagsSet: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+--- !u!114 &114000013152004046
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012039818718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0b86f8f0c6a1447af1f38ec4733743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000013400152586
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -154,6 +212,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcde2f85e7005e6429da7c992584b1a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  updateRate: 2
+  speed: 10
+  fMode: 0
+  pathIsEnded: 0
+  nextWaypointDistance: 3
 --- !u!212 &212000010600706614
 SpriteRenderer:
   m_ObjectHideFlags: 1
