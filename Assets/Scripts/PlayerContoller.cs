@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PlayerContoller : MonoBehaviour {
 
@@ -8,9 +9,11 @@ public class PlayerContoller : MonoBehaviour {
 	private bool right = false;
 	private Vector2 lastDPRot = new Vector2 (0f, 0f);
 	private Rigidbody2D rg;
+	private Canvas canvas;
 
 	void Start() {
 		rg = transform.parent.GetComponent<Rigidbody2D> ();
+		canvas = GameObject.Find ("Canvas");
 	}
 
 	void FixedUpdate() {
@@ -46,7 +49,13 @@ public class PlayerContoller : MonoBehaviour {
             gameObject.GetComponent<Attack>().attack(-(Vector2)(Quaternion.Euler(0, 0, gameObject.transform.rotation.eulerAngles.z + 90) * Vector2.right));
 
         if (Input.GetButtonDown("Swap"))
-            gameObject.GetComponent<Attack>().switchWeapon();      
+            gameObject.GetComponent<Attack>().switchWeapon();
+
+		if (Input.GetKeyDown (KeyCode.JoystickButton7))
+			Pause ();
+			// canvas panel, resume knopfe und ... aktivieren,
+			//SceneManager.LoadScene ("Pause Menu");
+
     }
 
 	void Flip() {
@@ -63,5 +72,13 @@ public class PlayerContoller : MonoBehaviour {
 			body.GetChild (0).gameObject.SetActive(false);
 			body.GetChild (1).gameObject.SetActive(true);
 		}
+	}
+
+	public void Pause() {
+		Time.timeScale = 0f;
+		canvas.transform.GetChild (0).gameObject.SetActive (true);
+		canvas.transform.GetChild (1).gameObject.SetActive (true);
+		canvas.transform.GetChild (2).gameObject.SetActive (true);
+		canvas.transform.GetChild (3).gameObject.SetActive (true);
 	}
 }
