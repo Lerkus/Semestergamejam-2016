@@ -13,7 +13,7 @@ public class PlayerContoller : MonoBehaviour {
 		rg = transform.parent.GetComponent<Rigidbody2D> ();
 	}
 
-	void Update() {
+	void FixedUpdate() {
 		float horizontalMove = Input.GetAxis ("Horizontal");
 		float VerticalMove = Input.GetAxis ("Vertical");
 		float dPad_X = Input.GetAxis ("DPad-XAxis");
@@ -21,7 +21,7 @@ public class PlayerContoller : MonoBehaviour {
 
 		// Player Movement
 		Vector3 movement = new Vector3 (horizontalMove, VerticalMove, 0f);
-		rg.AddForce (movement * playerSpeed);
+        rg.MovePosition(new Vector2(transform.parent.position.x, transform.parent.position.y) + new Vector2(movement.x, movement.y) * playerSpeed * Time.fixedDeltaTime);
 
 		// Player's Hand Rotation
 		// TODO change it for rotation for hand after adding sprites and change player's scaling according to player behavior
