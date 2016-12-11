@@ -8,14 +8,14 @@ public class Present : MonoBehaviour {
     {
         if (coll.gameObject.tag == "Player")
         {
-            GameMaster.getGameMaster().GetComponent<Inventory>().addResources(determineReward());
+            Inventory.addResources(determineReward());
             GameObject.Destroy(gameObject);
         }
     }
 
     int [] determineReward()
     {
-        int[] reward = new int[12];
+        int[] reward = new int[10];
         for(int i = 0; i < reward.Length/2; i++)
         {
             reward[i] = Mathf.RoundToInt(Random.value * maxDropAmount);

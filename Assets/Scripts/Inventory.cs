@@ -3,18 +3,18 @@ using System.Collections;
 
 public class Inventory : MonoBehaviour {
 
-    int[] resources = new int[12];
+    public static int[] resources = new int[10];
 
-	public void addResources(int[] added)
+    public static void addResources(int[] added)
     {
-        for(int i = 0; i < 12; i++)
+        for(int i = 0; i < 10; i++)
         {
             resources[i] += added[i];
         }
     }
 
-    public void resetInventory()
+    public static void resetInventory()
     {
-        resources = new int[12];
+        resources = new int[10];
     }
 }
