@@ -14,6 +14,6 @@ public class PlayerProgress : MonoBehaviour {
     public static float invicibleTime = 0.1f;
     public static float presentDropChance = 0.2f;
     public static float walkSpeed= 20;
-    public static float mistleSize = 1;
+    public static float mistleSize = 0.5f;
     public static float maxHealth = 10;
 }

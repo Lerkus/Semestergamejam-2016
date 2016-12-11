@@ -168,7 +168,7 @@ public class SkillTree : MonoBehaviour
                 if (canYouSkill(skill.mistelGroesse))
                 {
                     mistelGroesseLevel++;
-                    PlayerProgress.mistleSize += 0.25f;
+                    PlayerProgress.mistleSize *= 1.25f;
 
                     Inventory.resources[3] -= upgradeCost[3];
                     upgradeCost[3] += (int)(1.5 * upgradeCost[3]);

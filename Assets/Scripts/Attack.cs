@@ -62,7 +62,8 @@ public class Attack : MonoBehaviour
             if (attackType == mode.shotgun)
             {
                 attackType = mode.closeCombat;
-                mistletoe = (GameObject)Instantiate(mistletoePrefab, gameObject.transform.position + (Quaternion.Euler(0, 0, gameObject.transform.rotation.eulerAngles.z + 90) * Vector2.right).normalized * -1, gameObject.transform.rotation);
+                mistletoePrefab.transform.localScale = new Vector3(PlayerProgress.mistleSize, PlayerProgress.mistleSize, 0);
+                mistletoe = (GameObject)Instantiate(mistletoePrefab, GameObject.Find("HandPosition").transform.position, gameObject.transform.rotation);
                 mistletoe.transform.parent = this.gameObject.transform;
             }
             else if (attackType == mode.closeCombat)

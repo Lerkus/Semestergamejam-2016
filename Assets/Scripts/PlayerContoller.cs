@@ -51,8 +51,8 @@ public class PlayerContoller : MonoBehaviour {
         if (Input.GetButtonDown("Swap"))
             gameObject.GetComponent<Attack>().switchWeapon();
 
-		if (Input.GetKeyDown (KeyCode.JoystickButton7))
-			Pause ();
+		/*if (Input.GetKeyDown (KeyCode.JoystickButton7))
+			Pause ();*/
 			// canvas panel, resume knopfe und ... aktivieren,
 			//SceneManager.LoadScene ("Pause Menu");
 
