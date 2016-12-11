@@ -66,7 +66,7 @@ Transform:
   m_GameObject: {fileID: 1000012781237896}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3, y: -2.2137454, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000012364125210}
@@ -98,13 +98,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxDropAmount: 2
+  presentSprites:
+  - {fileID: 21300000, guid: de030b3d5fa4af84fadb73e23439a7ec, type: 3}
+  - {fileID: 21300000, guid: 8f754538b5d852843bf7cb33176d2550, type: 3}
+  - {fileID: 21300000, guid: 951ed1808910c7c498c945dd1c741c21, type: 3}
+  - {fileID: 21300000, guid: 7fd99765643b9234aa76832cf473bfbb, type: 3}
 --- !u!212 &212000011054710998
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013203022834}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_MotionVectors: 1
@@ -160,7 +165,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9802b1ea0ecc44841bd5abc3c796b1bd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: de030b3d5fa4af84fadb73e23439a7ec, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

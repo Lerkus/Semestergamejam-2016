@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class SkillTree : MonoBehaviour
 {
-    PlayerStats stats = GameMaster.getGameMaster().GetComponent<PlayerStats>();
+    //PlayerStats stats = GameMaster.getGameMaster().GetComponent<PlayerStats>();
     public enum skill { attackSpeed, shotgunWidth, shotgunDmg, mistelGroesse, mistelDmg, walkSpeed, armour, invincible, life, luck };
 
     [Header("Angriffstats")]
@@ -20,15 +20,17 @@ public class SkillTree : MonoBehaviour
     public int invincibleLevel = 0;
     public int lifeLevel = 0;
     public int luckLevel = 0;
-
+    
     public int maxLevel = 1000000;
+
+    public int[] upgradeCost = { 100, 100, 100, 100, 100, 100, 100, 100, 100, 100 };
 
     public bool canYouSkill(skill skill)
     {
         switch (skill)
         {
             case skill.attackSpeed:
-                if (attackSpeedLevel < maxLevel)
+                if (attackSpeedLevel < maxLevel && Inventory.resources[0] > upgradeCost[0])
                 {
                     return true;
                 }
@@ -37,7 +39,7 @@ public class SkillTree : MonoBehaviour
                     return false;
                 }
             case skill.shotgunWidth:
-                if (shotgunWidthLevel < attackSpeedLevel)
+                if (shotgunWidthLevel < attackSpeedLevel && Inventory.resources[1] > upgradeCost[1])
                 {
                     return true;
                 }
@@ -46,7 +48,7 @@ public class SkillTree : MonoBehaviour
                     return false;
                 }
             case skill.shotgunDmg:
-                if (shotgunDmgLevel < attackSpeedLevel)
+                if (shotgunDmgLevel < attackSpeedLevel && Inventory.resources[2] > upgradeCost[2])
                 {
                     return true;
                 }
@@ -55,7 +57,7 @@ public class SkillTree : MonoBehaviour
                     return false;
                 }
             case skill.mistelGroesse:
-                if (mistelGroesseLevel < attackSpeedLevel)
+                if (mistelGroesseLevel < attackSpeedLevel && Inventory.resources[3] > upgradeCost[3])
                 {
                     return true;
                 }
@@ -64,7 +66,7 @@ public class SkillTree : MonoBehaviour
                     return false;
                 }
             case skill.mistelDmg:
-                if (mistelDmgLevel < attackSpeedLevel)
+                if (mistelDmgLevel < attackSpeedLevel && Inventory.resources[4] > upgradeCost[4])
                 {
                     return true;
                 }
@@ -74,7 +76,7 @@ public class SkillTree : MonoBehaviour
                 }
 
             case skill.walkSpeed:
-                if (walkSpeedLevel < maxLevel)
+                if (walkSpeedLevel < maxLevel && Inventory.resources[5] > upgradeCost[5])
                 {
                     return true;
                 }
@@ -83,7 +85,7 @@ public class SkillTree : MonoBehaviour
                     return false;
                 }
             case skill.armour:
-                if (armourLevel < walkSpeedLevel)
+                if (armourLevel < walkSpeedLevel && Inventory.resources[6] > upgradeCost[6])
                 {
                     return true;
                 }
@@ -92,7 +94,7 @@ public class SkillTree : MonoBehaviour
                     return false;
                 }
             case skill.invincible:
-                if (invincibleLevel < walkSpeedLevel)
+                if (invincibleLevel < walkSpeedLevel && Inventory.resources[7] > upgradeCost[7])
                 {
                     return true;
                 }
@@ -101,7 +103,7 @@ public class SkillTree : MonoBehaviour
                     return false;
                 }
             case skill.life:
-                if (lifeLevel < walkSpeedLevel)
+                if (lifeLevel < walkSpeedLevel && Inventory.resources[8] > upgradeCost[8])
                 {
                     return true;
                 }
@@ -110,7 +112,7 @@ public class SkillTree : MonoBehaviour
                     return false;
                 }
             case skill.luck:
-                if (luckLevel < walkSpeedLevel)
+                if (luckLevel < walkSpeedLevel && Inventory.resources[9] > upgradeCost[9])
                 {
                     return true;
                 }
@@ -125,15 +127,17 @@ public class SkillTree : MonoBehaviour
 
     public void skillUp(skill skill)
     {
-        print("hallo");
         switch (skill)
         {
             case skill.attackSpeed:
                 if (canYouSkill(skill.attackSpeed))
                 {
                     attackSpeedLevel++;
-                    gameObject.GetComponent<PlayerStats>().attackCoolDown *= 0.9f;
-                    gameObject.GetComponent<PlayerStats>().shotSpeed *= 1.1f;
+                    PlayerProgress.attackCoolDown *= 0.9f;
+                    PlayerProgress.shotSpeed *= 1.1f;
+
+                    Inventory.resources[0] -= upgradeCost[0];
+                    upgradeCost[0] += (int)(1.5 * upgradeCost[0]);
                 }
                 break;
                 
@@ -141,8 +145,11 @@ public class SkillTree : MonoBehaviour
                 if (canYouSkill(skill.shotgunWidth))
                 {
                     shotgunWidthLevel++;
-                    gameObject.GetComponent<PlayerStats>().shotsToFire += 2;
-                    gameObject.GetComponent<PlayerStats>().shotgunWidthModifier *= 1.25f;
+                    PlayerProgress.shotsToFire += 2;
+                    PlayerProgress.shotgunWidthModifier *= 1.25f;
+
+                    Inventory.resources[1] -= upgradeCost[1];
+                    upgradeCost[1] += (int)(1.5 * upgradeCost[1]);
                 }
                 break;
 
@@ -150,14 +157,21 @@ public class SkillTree : MonoBehaviour
                 if (canYouSkill(skill.shotgunDmg))
                 {
                     shotgunDmgLevel++;
-                    gameObject.GetComponent<PlayerStats>().shotDmg *= 1.5f;
+                    PlayerProgress.shotDmg *= 1.5f;
+
+                    Inventory.resources[2] -= upgradeCost[2];
+                    upgradeCost[2] += (int)(1.5 * upgradeCost[2]);
                 }
                 break;
 
             case skill.mistelGroesse:
                 if (canYouSkill(skill.mistelGroesse))
                 {
-                    mistelGroesseLevel++; 
+                    mistelGroesseLevel++;
+                    PlayerProgress.mistleSize += 0.25f;
+
+                    Inventory.resources[3] -= upgradeCost[3];
+                    upgradeCost[3] += (int)(1.5 * upgradeCost[3]);
                 }
                 break;
 
@@ -165,7 +179,10 @@ public class SkillTree : MonoBehaviour
                 if (canYouSkill(skill.mistelDmg))
                 {
                     mistelDmgLevel++;
-                    gameObject.GetComponent<PlayerStats>().strenght *= 1.5f;
+                    PlayerProgress.mistelDmg *= 1.5f;
+
+                    Inventory.resources[4] -= upgradeCost[4];
+                    upgradeCost[4] += (int)(1.5 * upgradeCost[4]);
                 }
                 break;
 
@@ -173,7 +190,10 @@ public class SkillTree : MonoBehaviour
                 if (canYouSkill(skill.walkSpeed))
                 {
                     walkSpeedLevel++;
-                    gameObject.GetComponent<PlayerStats>().speed *= 1.2f;
+                    PlayerProgress.walkSpeed *= 1.2f;
+
+                    Inventory.resources[5] -= upgradeCost[5];
+                    upgradeCost[5] += (int)(1.5 * upgradeCost[5]);
                 }
                 break;
 
@@ -181,7 +201,10 @@ public class SkillTree : MonoBehaviour
                 if (canYouSkill(skill.armour))
                 {
                     armourLevel++;
-                    gameObject.GetComponent<PlayerStats>().dmgTakenMultiplier *= 0.95f;
+                    PlayerProgress.dmgTakenMultiplier *= 0.95f;
+
+                    Inventory.resources[6] -= upgradeCost[6];
+                    upgradeCost[6] += (int)(1.5 * upgradeCost[6]);
                 }
                 break;
 
@@ -189,7 +212,10 @@ public class SkillTree : MonoBehaviour
                 if (canYouSkill(skill.invincible))
                 {
                     invincibleLevel++;
-                    gameObject.GetComponent<PlayerStats>().invicibleTime *= 1.5f;
+                    PlayerProgress.invicibleTime *= 1.5f;
+
+                    Inventory.resources[7] -= upgradeCost[7];
+                    upgradeCost[7] += (int)(1.5 * upgradeCost[7]);
                 }
                 break;
 
@@ -197,7 +223,10 @@ public class SkillTree : MonoBehaviour
                 if (canYouSkill(skill.life))
                 {
                     lifeLevel++;
-                    gameObject.GetComponent<PlayerStats>().maxHealth *= 1.75f;
+                    PlayerProgress.maxHealth *= 1.75f;
+
+                    Inventory.resources[0] -= upgradeCost[0];
+                    upgradeCost[8] += (int)(1.5 * upgradeCost[8]);
                 }
                 break;
 
@@ -205,7 +234,10 @@ public class SkillTree : MonoBehaviour
                 if (canYouSkill(skill.luck))
                 {
                     luckLevel++;
-                    gameObject.GetComponent<PlayerStats>().presentDropChance *= 1.25f;
+                    PlayerProgress.presentDropChance *= 1.25f;
+
+                    Inventory.resources[9] -= upgradeCost[9];
+                    upgradeCost[9] += (int)(1.5 * upgradeCost[9]);
                 }
                 break;
 

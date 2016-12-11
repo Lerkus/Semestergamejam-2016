@@ -6,7 +6,7 @@ public class EnemyStats : Stats {
 
     public override void die()
     {
-        if (Random.value < GameMaster.getGameMaster().GetComponent<PlayerStats>().presentDropChance)
+        if (Random.value < PlayerProgress.presentDropChance)
         {
             Instantiate(presentPrefab, transform.position, new Quaternion());
         }
