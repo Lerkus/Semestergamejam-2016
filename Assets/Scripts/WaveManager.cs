@@ -29,7 +29,6 @@ public class WaveManager : MonoBehaviour
         }
         var player = Instantiate(GameMaster.getGameMaster().playerPrefab, (maxBounds + minBounds)/2, new Quaternion()) as GameObject;
         GameMaster.player = player;
-        mainCam.transform.parent = GameMaster.player.transform;
         nextWave();
     }
 
