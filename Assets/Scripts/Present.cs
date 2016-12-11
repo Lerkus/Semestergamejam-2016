@@ -3,6 +3,13 @@ using System.Collections;
 
 public class Present : MonoBehaviour {
     public int maxDropAmount = 2;
+    public Sprite[] presentSprites;
+
+
+    public void Awake()
+    {
+        gameObject.GetComponent<SpriteRenderer>().sprite = presentSprites[Mathf.RoundToInt((float)(presentSprites.Length) * Random.value)];
+    }
 
 	void OnCollisionEnter2D(Collision2D coll)
     {
@@ -26,6 +33,5 @@ public class Present : MonoBehaviour {
         }
 
         return reward;
-
     }
 }
