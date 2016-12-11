@@ -6,6 +6,6 @@ public class PlayerStats : Stats {
 
     public override void die()
     {
-        SceneManager.LoadScene("Scenes/Main");
+        SceneManager.LoadScene("Scenes/skill");
     }
 }
