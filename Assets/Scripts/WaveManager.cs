@@ -17,7 +17,7 @@ public class WaveManager : MonoBehaviour
     public int[] amountOfEnemiesToSpawn;
     public int difficulty = 10;
     private List<GameObject> activeEnemies = new List<GameObject>();
-    public string finishedScene = "test Lerkus";
+    public string finishedScene = "Scenes/skill";
 
 
     public void Start()
