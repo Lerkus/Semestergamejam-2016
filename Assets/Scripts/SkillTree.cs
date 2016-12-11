@@ -6,7 +6,6 @@ public class SkillTree : MonoBehaviour
 {
     //PlayerStats stats = GameMaster.getGameMaster().GetComponent<PlayerStats>();
     public enum skill { attackSpeed, shotgunWidth, shotgunDmg, mistelGroesse, mistelDmg, walkSpeed, armour, invincible, life, luck };
-
     [Header("Angriffstats")]
     public int attackSpeedLevel = 0;
     public int shotgunWidthLevel = 0;
@@ -125,8 +124,9 @@ public class SkillTree : MonoBehaviour
         }
     }
 
-    public void skillUp(skill skill)
+    public void skillUp(int index)
     {
+        skill skill = (skill)index;
         switch (skill)
         {
             case skill.attackSpeed:
@@ -244,5 +244,7 @@ public class SkillTree : MonoBehaviour
 
             default: break;
         }
+
+        GetComponentInParent<SkillTreeUI>().checkAvaliability();
     }
 }

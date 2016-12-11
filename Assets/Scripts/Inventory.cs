@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Inventory : MonoBehaviour {
 
-    public static int[] resources = new int[10];
+    public static int[] resources = { 200, 200, 200, 200, 200, 200, 200, 200, 200, 200 };//new int[10];
 
     public static void addResources(int[] added)
     {
