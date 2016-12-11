@@ -13,7 +13,7 @@ public class PlayerContoller : MonoBehaviour {
 
 	void Start() {
 		rg = transform.parent.GetComponent<Rigidbody2D> ();
-		canvas = GameObject.Find ("Canvas");
+		canvas = (Canvas) Object.FindObjectOfType<Canvas> ();
 	}
 
 	void FixedUpdate() {

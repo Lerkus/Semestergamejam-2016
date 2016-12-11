@@ -17,7 +17,7 @@ public class GameMaster : MonoBehaviour {
 	}
     void Start()
     {
-		canvas = GameObject.Find ("Canvas");
+		canvas = (Canvas) Object.FindObjectOfType<Canvas> ();
     }
 	
 	void Update () {
