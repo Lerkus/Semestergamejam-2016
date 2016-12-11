@@ -8,7 +8,7 @@ public class Present : MonoBehaviour {
 
     public void Awake()
     {
-        gameObject.GetComponent<SpriteRenderer>().sprite = presentSprites[Mathf.RoundToInt((float)(presentSprites.Length) * Random.value)];
+        gameObject.GetComponent<SpriteRenderer>().sprite = presentSprites[Mathf.RoundToInt((float)(presentSprites.Length - 1) * Random.value)];
     }
 
 	void OnCollisionEnter2D(Collision2D coll)
