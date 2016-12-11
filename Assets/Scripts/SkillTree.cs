@@ -23,7 +23,7 @@ public class SkillTree : MonoBehaviour
     
     public int maxLevel = 1000000;
 
-    public int[] upgradeCost = new int[10];
+    public int[] upgradeCost = { 100, 100, 100, 100, 100, 100, 100, 100, 100, 100 };
 
     public bool canYouSkill(skill skill)
     {
@@ -135,6 +135,9 @@ public class SkillTree : MonoBehaviour
                     attackSpeedLevel++;
                     PlayerProgress.attackCoolDown *= 0.9f;
                     PlayerProgress.shotSpeed *= 1.1f;
+
+                    Inventory.resources[0] -= upgradeCost[0];
+                    upgradeCost[0] += (int)(1.5 * upgradeCost[0]);
                 }
                 break;
                 
@@ -144,6 +147,9 @@ public class SkillTree : MonoBehaviour
                     shotgunWidthLevel++;
                     PlayerProgress.shotsToFire += 2;
                     PlayerProgress.shotgunWidthModifier *= 1.25f;
+
+                    Inventory.resources[1] -= upgradeCost[1];
+                    upgradeCost[1] += (int)(1.5 * upgradeCost[1]);
                 }
                 break;
 
@@ -152,6 +158,9 @@ public class SkillTree : MonoBehaviour
                 {
                     shotgunDmgLevel++;
                     PlayerProgress.shotDmg *= 1.5f;
+
+                    Inventory.resources[2] -= upgradeCost[2];
+                    upgradeCost[2] += (int)(1.5 * upgradeCost[2]);
                 }
                 break;
 
@@ -159,7 +168,10 @@ public class SkillTree : MonoBehaviour
                 if (canYouSkill(skill.mistelGroesse))
                 {
                     mistelGroesseLevel++;
-                    PlayerProgress.mistleSize += 0.25; 
+                    PlayerProgress.mistleSize += 0.25f;
+
+                    Inventory.resources[3] -= upgradeCost[3];
+                    upgradeCost[3] += (int)(1.5 * upgradeCost[3]);
                 }
                 break;
 
@@ -168,6 +180,9 @@ public class SkillTree : MonoBehaviour
                 {
                     mistelDmgLevel++;
                     PlayerProgress.mistelDmg *= 1.5f;
+
+                    Inventory.resources[4] -= upgradeCost[4];
+                    upgradeCost[4] += (int)(1.5 * upgradeCost[4]);
                 }
                 break;
 
@@ -176,6 +191,9 @@ public class SkillTree : MonoBehaviour
                 {
                     walkSpeedLevel++;
                     PlayerProgress.walkSpeed *= 1.2f;
+
+                    Inventory.resources[5] -= upgradeCost[5];
+                    upgradeCost[5] += (int)(1.5 * upgradeCost[5]);
                 }
                 break;
 
@@ -184,6 +202,9 @@ public class SkillTree : MonoBehaviour
                 {
                     armourLevel++;
                     PlayerProgress.dmgTakenMultiplier *= 0.95f;
+
+                    Inventory.resources[6] -= upgradeCost[6];
+                    upgradeCost[6] += (int)(1.5 * upgradeCost[6]);
                 }
                 break;
 
@@ -192,6 +213,9 @@ public class SkillTree : MonoBehaviour
                 {
                     invincibleLevel++;
                     PlayerProgress.invicibleTime *= 1.5f;
+
+                    Inventory.resources[7] -= upgradeCost[7];
+                    upgradeCost[7] += (int)(1.5 * upgradeCost[7]);
                 }
                 break;
 
@@ -200,6 +224,9 @@ public class SkillTree : MonoBehaviour
                 {
                     lifeLevel++;
                     PlayerProgress.maxHealth *= 1.75f;
+
+                    Inventory.resources[0] -= upgradeCost[0];
+                    upgradeCost[8] += (int)(1.5 * upgradeCost[8]);
                 }
                 break;
 
@@ -208,6 +235,9 @@ public class SkillTree : MonoBehaviour
                 {
                     luckLevel++;
                     PlayerProgress.presentDropChance *= 1.25f;
+
+                    Inventory.resources[9] -= upgradeCost[9];
+                    upgradeCost[9] += (int)(1.5 * upgradeCost[9]);
                 }
                 break;
 
